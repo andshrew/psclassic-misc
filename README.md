@@ -1,2 +1,2 @@
 # psclassic-misc
-Miscellaneous notes and scripts from investigating the PlayStation Classic 
+This is just a collection of miscellaneous notes and lolhack scripts created from investigating the software of the PlayStation Classic. 
