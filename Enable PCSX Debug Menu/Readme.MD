@@ -7,7 +7,7 @@ Once the system has booted to the main menu, insert your USB stick and the scrip
 
 Start any game, and once in-game you can press `SELECT` + `TRIANGLE` on your controller to open the PCSX menu.
 
-**Note this will remain in-effect until you power of the console (soft or hard)**.
+**Note this will remain in-effect until you power off the console (soft or hard)**.
 
 ## What is this?
 
