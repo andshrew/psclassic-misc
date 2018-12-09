@@ -66,6 +66,8 @@ When launching any game other than Rainbow Six, the application will check to se
 
 If the PBP file does not exist it will just pass the original parameters into pcsx.
 
+The PBP file must reside in the games data directory within `/gaadata/` and be named in the same convention as existing files. Using Tekken 3 as an example the file would be `/gaadata/17/SCES-01237.pbp`. If you're using PBP files you no longer need a `.bin` file in the directory. The only required file is the `.cue` file - although I have not tested that `ui_menu` specificially checks for the existance of a `.cue` it may be entirely possible to only have a PBP file. Given the insignificant size of the `.cue` it's probably best just to leave it there.
+
 From initial testing everything appears to function as it originally did. Save states are still created when you hit reset, and they correctly resume. CD changing via the open button has not been tested but probably won't work with PBP or other formats as, I believe, pcsx is making calls back into ui_menu to determine if a game is allowed to change CD. In these cases a change would need to be made via the pcsx in-game menu.
 
 ### Potential future enhancments 
