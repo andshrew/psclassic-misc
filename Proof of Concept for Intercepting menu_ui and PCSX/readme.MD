@@ -37,7 +37,7 @@ sleep 2s
 
 #   Remount / as RW so that we can modify the files
 mount -o remount,rw /
-cp -f /usr/sony/bin/pcsx /usr/sony/bin/pcsx.old
+cp /usr/sony/bin/pcsx /usr/sony/bin/pcsx.old
 cp -f /media/intercept /usr/sony/bin/pcsx
 
 #   Restore original PCSX
