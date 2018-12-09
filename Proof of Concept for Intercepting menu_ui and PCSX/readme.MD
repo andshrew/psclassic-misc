@@ -62,5 +62,18 @@ The application checks what game the user is launching, and it does this by look
 Using this approach it would be possible to (once developed) add other applications such as RetroArch as entries on the Sony menu in the same way you add regular games. You would just give it a unique ID which the intercept application is looking for and it would seemlessly launch.
 
 #### Launching a game from a PBP image file
-When launching any game other than Rainbow Six, the application will check to see if a PBP file exists within the games directory and if it does will update the `cdfile` argument which is passed into PCSX to that of the path to the PBP file
+When launching any game other than Rainbow Six, the application will check to see if a PBP file exists within the games directory and if it does will update the `cdfile` argument which is passed into pcsx to that of the path to the PBP file. 
+
+If the PBP file does not exist it will just pass the original parameters into pcsx.
+
+From initial testing everything appears to function as it originally did. Save states are still created when you hit reset, and they correctly resume. CD changing via the open button has not been tested but probably won't work with PBP or other formats as, I believe, pcsx is making calls back into ui_menu to determine if a game is allowed to change CD. In these cases a change would need to be made via the pcsx in-game menu.
+
+### Potential future enhancments 
+This is a barebones proof of concept, and any changes require re-compiling and re-uploading the executable.
+
+An odvious useful enhancement would be implementing an external way of configuring Game IDs and what applications they should launch. This could be done via a configuration file, or perhaps even calling a shell file which would be a bit more flexible and easy to configure more advanced options.
+
+
+
+
 
