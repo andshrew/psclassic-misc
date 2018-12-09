@@ -1,3 +1,9 @@
+/*
+Licensed under the terms of the GNU GENERAL PUBLIC LICENSE
+(C) andshrew 2018
+See LICENSE in the root directory
+*/
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
