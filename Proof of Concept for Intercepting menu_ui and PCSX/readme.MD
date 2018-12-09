@@ -25,7 +25,7 @@ From testing it appears it is not possibly to simply replace pcsx with a shell s
 
 Taking advantage of the [gpghax/lolhack exploit](https://github.com/justMaku/gpghax), a script needs to be run to create a copy of pcsx on the system and to then copy our executable over. 
 
-**Note that `/` is mounted read-only for a reason, and this procedure will be altering system files. You should only be doing this if you know what you are doing. Do not run this script more than once or it will overwrite your copy of pcsx with your own application.**
+**Note that `/` is mounted read-only for a reason, and this procedure will be altering system files. You should only be doing this if you know what you are doing. Do not run this script more than once or it will overwrite your copy of pcsx with your own application. Beaware that this example will prevent you from playing Rainbow Six.**
 
 ```shell
 sleep 2s
