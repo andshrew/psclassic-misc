@@ -14,6 +14,7 @@ An example of the process for launching Tekken 3
 2. 1. If the game is started via `PLAY` it passes the following parameters:
 `-lang 2 -region 2 -enter 1 -cdfile /data/AppData/sony/title/SCES-01237.cue`
 2. 2. If the game is started from a saved state:
+`-lang 2 -region 2 -enter 1 -load 1 -cdfile /data/AppData/sony/title/SLES-01237.cue`
 
 There's no security in place to verify it's loading the application it thinks it is, so it's possible to make a copy of pcsx and then replace the original with our own application. This application can become a man-in-the-middle and allow us to do something other than launch pcsx, or it could simply pass the original parameters through to PCSX and the system will (seemingly) be none the wiser to what has happened.
 
