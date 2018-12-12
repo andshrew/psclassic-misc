@@ -11,10 +11,13 @@ This is intended for use by the development community rather than an end-user.
 
 An example of the process for launching Tekken 3
 1. It creates a symbolic link from the games directory `/gaadata/17` to `/data/AppData/sony/title/`.
-2. 1. If the game is started via `PLAY` it passes the following parameters:
+2. It changes the working directory based on the `GAME_ID` ie. `cd 17`. If that directory does not exist then the working directory is unchanged. 
+3.  If the game is started via `PLAY` it passes the following parameters:
 `-lang 2 -region 2 -enter 1 -cdfile /data/AppData/sony/title/SCES-01237.cue`
-2. 2. If the game is started from a saved state:
+4. If the game is started from a saved state:
 `-lang 2 -region 2 -enter 1 -load 1 -cdfile /data/AppData/sony/title/SLES-01237.cue`
+
+Given this you can determine that `ui_menu` makes assumptions that it is always executing from the intended working directory ie. `/data/AppData/sony/pcsx`. This is why it is really important that if you manually launch `ui_menu` you first ensure you have moved into this directory ie. `cd /data/AppData/sony/pcsx`. If you have not done this then `ui_menu` executes from where your script was launched from (most likely `/media/lolhack`) and, odviously, PCSX will then no longer have access to the expected configuration files when you try to launch a game. This results in issues such as no controller bindings, and the games running with the HLE BIOS.
 
 There's no security in place to verify it's loading the application it thinks it is, so it's possible to make a copy of pcsx and then replace the original with our own application. This application can become a man-in-the-middle and allow us to do something other than launch pcsx, or it could simply pass the original parameters through to PCSX and the system will (seemingly) be none the wiser to what has happened.
 
