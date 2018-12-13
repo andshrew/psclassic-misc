@@ -1,4 +1,4 @@
-#   Script for the uninstallation of 
+#   Script for the uninstallation of the intercept application
 #   andshrew
 #   v1.0    12/12/2018
 
