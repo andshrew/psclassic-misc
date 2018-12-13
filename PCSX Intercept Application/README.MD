@@ -41,6 +41,8 @@ This is a simple text file which will contain the command, or commands, you want
 
 Note that only the first line is read, and that file format should not matter. Both LF (UNIX) and CRLF (Windows) should work.
 
+See [below](#example-commands-for-custom-applications) for example commands.
+
 ### Method 2: Embedding the command directly in the regional.db
 
 An alternative approach to using the `launch.txt` file is to embed the command you want to execute directly within the `ui_menu` database file. __**Note it is not possible to set a custom game icon if you use this approach, as the field we embed the command into is also the field `ui_menu` uses to build the list of resources it needs for a game.**__
