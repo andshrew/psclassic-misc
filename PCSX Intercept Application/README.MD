@@ -98,8 +98,69 @@ The USB drive should be inserted **only** when the system has booted to the main
 
 This installation process utilises the [gpghax/lolhack](https://github.com/justMaku/gpghax) exploit.
 
+### Example Successful Installation Log `/media/intercept_install.log`
+```shell
+Starting Intercept Install Script
+sha1sum of /usr/sony/bin/pcsx matches the original
+/usr/sony/bin/pcsx.old already exists. This may be a re-installation
+/usr/sony/bin/pcsx.old exists, and sha1sum confirms it matches the original /usr/sony/bin/pcsx
+`/media/intercept' -> `/usr/sony/bin/pcsx'
+The intercept application has been successfully installed to the system
+Directory listing of /usr/sony/bin
+total 3704
+drwxr-xr-x 3 root root    1024 Sep  1 14:57 .
+drwxr-xr-x 5 root root    1024 Sep  9  2018 ..
+-rwxr-xr-x 1 root root   16276 Sep  9  2018 auto_dimmer
+-rwxr-xr-x 1 root root    1326 Sep  9  2018 checkcurrentlog.sh
+-rwxr-xr-x 1 root root     452 Sep  9  2018 killp
+-rwxr-xr-x 1 root root   12768 Sep  1 14:58 pcsx
+-rwxr-xr-x 1 root root 1034476 Sep  1 14:57 pcsx.old
+drwxr-xr-x 2 root root    1024 Sep  9  2018 plugins
+-rwxr-xr-x 1 root root     454 Sep  9  2018 recovery.sh
+-rwxr-xr-x 1 root root     156 Sep  9  2018 recovery2.sh
+-rwxr-xr-x 1 root root      67 Sep  9  2018 showCopyright.sh
+-rwxr-xr-x 1 root root 1753540 Sep  9  2018 showLogo
+-rwxr-xr-x 1 root root    3269 Sep  9  2018 showVersion.sh
+-rwxr-xr-x 1 root root    3991 Sep  9  2018 sonyapp
+-rwxr-xr-x 1 root root    3109 Sep  9  2018 sonyapp-copy
+-rwxr-xr-x 1 root root    2372 Sep  9  2018 sonyapp-copylink
+-rwxr-xr-x 1 root root  949104 Sep  9  2018 ui_menu
+Exit Intercept Install Script
+```
+
+### Example Successful Uninstallation Log `/media/intercept_uninstall.log`
+```
+Starting Intercept Uninstall Script
+sha1sum of /usr/sony/bin/pcsx does not match the original
+/usr/sony/bin/pcsx.old exists, checking that it matches the sha1sum of the original
+/usr/sony/bin/pcsx.old matches the sha1sum of the original. Attempting to restore it
+`/usr/sony/bin/pcsx.old' -> `/usr/sony/bin/pcsx'
+Directory listing of /usr/sony/bin
+total 4702
+drwxr-xr-x 3 root root    1024 Sep  1 14:57 .
+drwxr-xr-x 5 root root    1024 Sep  9  2018 ..
+-rwxr-xr-x 1 root root   16276 Sep  9  2018 auto_dimmer
+-rwxr-xr-x 1 root root    1326 Sep  9  2018 checkcurrentlog.sh
+-rwxr-xr-x 1 root root     452 Sep  9  2018 killp
+-rwxr-xr-x 1 root root 1034476 Sep  1 15:00 pcsx
+-rwxr-xr-x 1 root root 1034476 Sep  1 14:57 pcsx.old
+drwxr-xr-x 2 root root    1024 Sep  9  2018 plugins
+-rwxr-xr-x 1 root root     454 Sep  9  2018 recovery.sh
+-rwxr-xr-x 1 root root     156 Sep  9  2018 recovery2.sh
+-rwxr-xr-x 1 root root      67 Sep  9  2018 showCopyright.sh
+-rwxr-xr-x 1 root root 1753540 Sep  9  2018 showLogo
+-rwxr-xr-x 1 root root    3269 Sep  9  2018 showVersion.sh
+-rwxr-xr-x 1 root root    3991 Sep  9  2018 sonyapp
+-rwxr-xr-x 1 root root    3109 Sep  9  2018 sonyapp-copy
+-rwxr-xr-x 1 root root    2372 Sep  9  2018 sonyapp-copylink
+-rwxr-xr-x 1 root root  949104 Sep  9  2018 ui_menu
+/usr/sony/bin/pcsx has been successfully restored to the original file.
+The intercept application has been uninstalled and the system will now function as it was originially intended
+ui_menu will now directly launch pcsx again
+Exit Intercept Uninstall Script
+```
 ## Demonstration regional.db / Custom Applications
 
-There is an inherit amount of risk associated with changing the `regional.db` and so I will not be publishing a demonstration version until a script with fail safes has been developed.
+There is an inherent amount of risk associated with changing the `regional.db` and so I will not be publishing a demonstration version until a script with fail safes has been developed.
 
 There is sufficient information in this document for a developer to be able to experiment with this solution.
