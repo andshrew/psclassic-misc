@@ -43,9 +43,9 @@ BATTLEARENATOSHINDEN-SCES00002
 
 | Actual Path | Parameter Path |
 | - | - |
-|`/data/AppData/sony/pcsx/.pcsx/filename.txt.res`|`{sPcsxDataOriginPath}/.pcsx/filename.txt.res` |
-|`/data/AppData/sony/pcsx/.pcsx/sstates/BATTLEARENATOSHINDEN-SCES00002.000.res`|`{sPcsxDataOriginPath}/.pcsx/sstates/{2nd line of filename.txt}.000.res` |
-|`/data/AppData/sony/pcsx/.pcsx/screenshots/BATTLEARENATOSHINDEN-SCES00002.png.res`|`{sPcsxDataOriginPath}/.pcsx/screenshots/{2nd line of filename.txt}.png.res` |
+|`/data/AppData/sony/pcsx/1/.pcsx/filename.txt.res`|`{sPcsxDataOriginPath}/{GAME_ID}/.pcsx/filename.txt.res` |
+|`/data/AppData/sony/pcsx/1/.pcsx/sstates/BATTLEARENATOSHINDEN-SCES00002.000.res`|`{sPcsxDataOriginPath}/{GAME_ID}/.pcsx/sstates/{2nd line of filename.txt}.000.res` |
+|`/data/AppData/sony/pcsx/1/.pcsx/screenshots/BATTLEARENATOSHINDEN-SCES00002.png.res`|`{sPcsxDataOriginPath}/{GAME_ID}/.pcsx/screenshots/{2nd line of filename.txt}.png.res` |
 
 
 
@@ -68,16 +68,16 @@ If the user selects YES to keep the new save point.
 
 | Actual Path | Parameter Path |
 | - | - |
-|`/data/AppData/sony/pcsx/.pcsx/filename.txt.bak`|`{sPcsxDataOriginPath}/.pcsx/filename.txt.bak` |
-|`/data/AppData/sony/pcsx/.pcsx/sstates/BATTLEARENATOSHINDEN-SCES00002.000.bak`|`{sPcsxDataOriginPath}/.pcsx/sstates/{2nd line of filename.txt}.000.bak` |
+|`/data/AppData/sony/pcsx/1/.pcsx/filename.txt.bak`|`{sPcsxDataOriginPath}/{GAME_ID}/.pcsx/filename.txt.bak` |
+|`/data/AppData/sony/pcsx/1/.pcsx/sstates/BATTLEARENATOSHINDEN-SCES00002.000.bak`|`{sPcsxDataOriginPath}/{GAME_ID}/.pcsx/sstates/{2nd line of filename.txt}.000.bak` |
 
 `ui_menu` appends the new save state files with `.res`
 
 | Actual Path | Parameter Path |
 | - | - |
-|`/data/AppData/sony/pcsx/.pcsx/filename.txt.res`|`{sPcsxDataOriginPath}/.pcsx/filename.txt.res` |
-|`/data/AppData/sony/pcsx/.pcsx/sstates/BATTLEARENATOSHINDEN-SCES00002.000.res`|`{sPcsxDataOriginPath}/.pcsx/sstates/{2nd line of filename.txt}.000.res` |
-|`/data/AppData/sony/pcsx/.pcsx/screenshots/BATTLEARENATOSHINDEN-SCES00002.png.res`|`{sPcsxDataOriginPath}/.pcsx/screenshots/{2nd line of filename.txt}.png.res` |
+|`/data/AppData/sony/pcsx/1/.pcsx/filename.txt.res`|`{sPcsxDataOriginPath}/.pcsx/filename.txt.res` |
+|`/data/AppData/sony/pcsx/1/.pcsx/sstates/BATTLEARENATOSHINDEN-SCES00002.000.res`|`{sPcsxDataOriginPath}/{GAME_ID}/.pcsx/sstates/{2nd line of filename.txt}.000.res` |
+|`/data/AppData/sony/pcsx/1/.pcsx/screenshots/BATTLEARENATOSHINDEN-SCES00002.png.res`|`{sPcsxDataOriginPath}/{GAME_ID}/.pcsx/screenshots/{2nd line of filename.txt}.png.res` |
 
 If the user selects NO to keep the existing save point then the files created by `pcsx` are deleted.
 
