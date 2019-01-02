@@ -69,7 +69,9 @@ If the user selects YES to keep the new save point.
 
 `ui_menu` moves `filename.txt` to `filename.txt.res`. The contents is unchanged from the above.
 
-You can see from this process that `ui_menu` is creating a backup of the original save state, even though there is no user accessible way to restore this backup.
+You can see from this process that `ui_menu` is creating a backup of the original save state, even though there is seemingly no user accessible way to restore this backup.
+
+If you intentionally damage the save state after the backup has been made (ie. delete `BATTLEARENATOSHINDEN-SCES00002.000.res`) then `ui_menu` automatically restores the previous save state. The screenshot however is not restored to the original version as no backup is created of it, instead this remains as the deleted save states screenshot.
 
 
 
