@@ -85,6 +85,8 @@ If the user selects NO to keep the existing save point then the files created by
 You can see from this process that `ui_menu` is creating a backup of the original save state, even though there is seemingly no user accessible way to restore this backup.
 
 If you intentionally damage the save state after the backup has been made (ie. delete `BATTLEARENATOSHINDEN-SCES00002.000.res`) then `ui_menu` automatically restores the previous save state from the `.bak` files. The screenshot however is not restored to the original version as no backup is created of it, instead this remains as the deleted save states screenshot.
+![alt text](http://andshrew.github.io/psc/ui_menu/cannot_resume.PNG "PlayStation Classic Menu automatic save state repair")
+
 
 ### Caution on differing pcsx and ui_menu data paths
 You will note from the above that there is the potential for conflict in the directory being used by `ui_menu` and `pcsx`.
