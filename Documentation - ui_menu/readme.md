@@ -50,9 +50,15 @@ BATTLEARENATOSHINDEN-SCES00002
 
 
 ### Pressing the RESET button with an existing save state
-`pcsx` creates a save state file, named after the second line of `filename.txt`. `BATTLEARENATOSHINDEN-SCES00002.000`.
+`pcsx` regenerates `filename.txt`. The contents of this file will be unchanged except in cases where the game disc has subsequently been changed. It then creates a save state file, named after the second line of `filename.txt`. `BATTLEARENATOSHINDEN-SCES00002.000`. The `000` indicates save state slot 0. It also creates a screenshot `BATTLEARENATOSHINDEN-SCES00002.png`.
 
-`ui_menu` checks if `BATTLEARENATOSHINDEN-SCES00002.000.res` exists and as it does it knows this is a new save state. It prompts the user to keep the existing save state, or keep the new one.
+| Actual Path | Parameter Path |
+| - | - |
+|`/data/AppData/sony/pcsx/.pcsx/filename.txt`|`{Current Working Directory}/.pcsx/filename.txt` |
+|`/data/AppData/sony/pcsx/.pcsx/sstates/BATTLEARENATOSHINDEN-SCES00002.000`|`{Current Working Directory}/.pcsx/sstates/{2nd line of filename.txt}.000` |
+|`/data/AppData/sony/pcsx/.pcsx/screenshots/BATTLEARENATOSHINDEN-SCES00002.png`|`{Current Working Directory}/.pcsx/screenshots/{2nd line of filename.txt}.png` |
+
+`ui_menu` checks if `BATTLEARENATOSHINDEN-SCES00002.000.res` exists, and as it does it knows this is a new save state. It prompts the user to keep the existing save state, or keep the new one.
 
 ![alt text](http://andshrew.github.io/psc/ui_menu/delete_save_state.png "PlayStation Classic Menu keep or new save point")
 
@@ -73,10 +79,21 @@ If the user selects YES to keep the new save point.
 |`/data/AppData/sony/pcsx/.pcsx/sstates/BATTLEARENATOSHINDEN-SCES00002.000.res`|`{sPcsxDataOriginPath}/.pcsx/sstates/{2nd line of filename.txt}.000.res` |
 |`/data/AppData/sony/pcsx/.pcsx/screenshots/BATTLEARENATOSHINDEN-SCES00002.png.res`|`{sPcsxDataOriginPath}/.pcsx/screenshots/{2nd line of filename.txt}.png.res` |
 
+If the user selects NO to keep the existing save point then the files created by `pcsx` are deleted.
+
 
 You can see from this process that `ui_menu` is creating a backup of the original save state, even though there is seemingly no user accessible way to restore this backup.
 
 If you intentionally damage the save state after the backup has been made (ie. delete `BATTLEARENATOSHINDEN-SCES00002.000.res`) then `ui_menu` automatically restores the previous save state from the `.bak` files. The screenshot however is not restored to the original version as no backup is created of it, instead this remains as the deleted save states screenshot.
+
+### Caution on differing pcsx and ui_menu data paths
+You will note from the above that there is the potential for conflict in the directory being used by `ui_menu` and `pcsx`.
+
+Whenever `pcsx` is interacting with the file system it is doing so from the **`{Current Working Directory}`**. This is the directory from which `ui_menu` was launched. By default this location is `/data/AppData/sony/pcsx/`.
+
+Whenever `ui_menu` is interacting with the file system it is doing from from the configuration variable **`{sPcsxDataOriginPath}`**. By default this location is `/data/AppData/sony/pcsx/`
+
+**These paths must always match.** If either of these have been changed from default then there is the potential for `pcsx` to be writing save states into a directory which differs to the directory that `ui_menu` is checking to determine if a save state actually exists, therfore breaking the save state functionality within `ui_menu`.
 
 ### Resuming
 `ui_menu` checks that the save state file is not zero length, or missing.
