@@ -126,6 +126,16 @@ do
     intercept_game_ext="${arg##*.}"
     echo "[INTERCEPT](INFO) Game extension: $intercept_game_ext"
 
+    # Revert to Stock PCSX if the game is included in this list
+    if [ "$launch_ra_from_stock_UI" = "1" ]; then
+      case "$intercept_game_id" in
+        "SLUS-00594"|"SLUS-00776")
+        echo "[INTERCEPT](INFO) RetroArch is enabled as the emulator, but this game is configured to use the Stock PCSX"
+        launch_ra_from_stock_UI=0
+        ;;
+      esac
+    fi
+
     # Check if the game exists in an alternative format
     # The game path always has .cue appened to the BASENAME field of the DISC table in regional.db
     # EXCEPT when the game is launched from a Save State. In this case the Game Path is determined from
@@ -134,6 +144,10 @@ do
 
       start_alt=$(date +%s%N)
       for f in "${intercept_file_formats[@]}"; do
+        if [ "$launch_ra_from_stock_UI" = "0" ] && [ "$f" = "m3u" ]; then
+          echo "[INTERCEPT](INFO) Ignoring m3u game format as Stock PCSX is the current emulator"
+          continue
+        fi
         f_upper=$(echo $f | tr a-z A-Z)
         if [ -f "${arg%.cue}.${f}" ]; then
           intercept_game_alternative_path="${arg%.cue}.${f}"
@@ -175,16 +189,6 @@ do
 done
 end_arg=$(date +%s%N)
 echo "[INTERCEPT](PROFILE) extracting arguments took: $(((end_arg-start_arg)/1000000))ms to execute"
-
-if [ "$launch_ra_from_stock_UI" = "1" ]; then
-  # Revert to Stock PCSX if game is in this list
-  case "$intercept_game_id" in
-    "SCUS-94423 (USA)"|"SLUS-00594")
-    echo "[INTERCEPT](INFO) RetroArch is enabled as the emulator, but this game is configured to use the Stock PCSX"
-    launch_ra_from_stock_UI=0
-    ;;
-  esac
-fi
 
 if [ "$launch_ra_from_stock_UI" = "1" ]; then
   echo "[INTERCEPT](INFO) RetroArch is enabled as the emulator"
